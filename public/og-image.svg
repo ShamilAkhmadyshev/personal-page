@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0c0c0c"/>
+  <text x="60" y="280" fill="#ffffff" font-size="72" font-family="Verdana, Arial, Helvetica, sans-serif">Shamil Akhmadyshev</text>
+  <text x="60" y="360" fill="#c8c8c8" font-size="36" font-family="Verdana, Arial, Helvetica, sans-serif">Frontend Developer — React &amp; TypeScript</text>
+</svg>
