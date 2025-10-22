@@ -59,8 +59,9 @@ export const UI = {
     contactTitle: 'Связаться',
     contactLine: 'Есть идея или проект? Пишите на',
     sayHello: 'Написать',
-    resumeBtn: 'Резюме',
     phone: 'Телефон',
+    tutorTitle: 'Репетиторство',
+    tutorText: 'Помогаю детям и абсолютным новичкам осваивать основы веб-разработки (HTML, CSS, JavaScript). Открыт для новых учеников — занятия онлайн или в Праге.',resumeBtn: 'Скачать резюме',
   },
 } as const
 
