@@ -5,9 +5,7 @@ import { SOCIALS } from './data/socials'
 import { STACK } from './data/stack'
 import { EXPERIENCE } from './data/experience'
 import { PROJECTS } from './data/projects'
-import { EDUCATION } from './data/education'
-import { LANGUAGES } from './data/languages'
-import { NAV, UI, type Lang, getInitialLang, persistLang } from './i18n'
+import { getEducation } from './data/education.i18n';import { getLanguages } from './data/languages.i18n';import { NAV, UI, type Lang, getInitialLang, persistLang } from './i18n'
 
 function useActiveSection(ids: string[]) {
   const [active, setActive] = useState(ids[0])
@@ -58,6 +56,8 @@ function getInitialTheme(): 'light'|'dark' {
 
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
+  const education = useMemo(() => getEducation(lang), [lang]);
+  const languages = useMemo(() => getLanguages(lang), [lang]);
   const [theme, setTheme] = useState<'light'|'dark'>('light')
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -84,7 +84,7 @@ export default function App() {
       { id: 'skills', label: nav.skills },
       { id: 'experience', label: nav.experience },
       { id: 'work', label: nav.work },
-       { id: 'tutoring', label: ui.tutorTitle },
+      { id: 'tutoring', label: 'Tutoring' },
       { id: 'education', label: nav.education },
       
     ],
@@ -218,15 +218,15 @@ export default function App() {
                 ))}
               </div>
             </Section>
-                    <Section id="tutoring" title={ui.tutorTitle}>
-  <p className="mt-2">{ui.tutorText}</p>
-  <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1200&q=80&auto=format&fit=crop" alt="" className="mt-3 w-full rounded-xl object-cover" />
-</Section>
+                    <Section id="tutoring" title="Tutoring">
+              <p className="mt-2">{ui.tutorText}</p>
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1200&q=80&auto=format&fit=crop" alt="" className="mt-3 w-full rounded-xl object-cover" />
+            </Section>
 
 
             <Section id="education" title={ui.eduTitle}>
               <div className="space-y-4">
-                {EDUCATION.map((e) => (
+                {education.map((e) => (
                   <div key={e.org} className="rounded-2xl border p-5">
                     <div className="flex items-baseline justify-between gap-4">
                       <div>
@@ -243,7 +243,7 @@ export default function App() {
 
             <Section id="languages" title={ui.langTitle}>
               <ul className="mt-2 grid grid-cols-2 gap-2 text-sm sm:grid-cols-3">
-                {LANGUAGES.map((l) => (<li key={l.name} className="rounded-xl border px-3 py-2">{l.name} — {l.level}</li>))}
+                {languages.map((l) => (<li key={l.name} className="rounded-xl border px-3 py-2">{l.name} — {l.level}</li>))}
               </ul>
             </Section>
 
