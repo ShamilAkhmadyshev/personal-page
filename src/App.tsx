@@ -156,9 +156,6 @@ export default function App() {
               <a href="mailto:shamil.akhmadyshev@gmail.com" className="inline-flex items-center justify-center rounded-xl bg-black px-4 py-2 text-sm text-white dark:bg-white dark:text-black">
                 {ui.sayHello}
               </a>
-              <a href="tel:+420705920222" className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm">
-                <Icon name="phone" /> +420 705 920 222
-              </a>
             </div>
           </aside>
           {/* RIGHT CONTENT */}
